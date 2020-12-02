@@ -1,3 +1,15 @@
+#!/bin/bash
+#
+file=indexFR.html
+if [ -e $file ]
+then
+  echo "HTML $file deleted"
+  rm $file
+fi
+
+##Create HTML page
+title=$1
+cat >> ./$file <<HEAD
 <!DOCTYPE html>
 <html>
 
@@ -18,12 +30,35 @@
     <p><span class="desc">sunnyhouses@gmail.com</span></p>
   </header>
   <div class="bss-slides num1" id="canvas" tabindex="1" autofocus="autofocus">
+HEAD
+
+for i in img/*.png
+do
+if [ -e $i ]
+then
+echo "Adding img/$i"
+cat >> ./$file <<HTML
     <figure>
-		  <img src="img/ej1.jpg" width="100%" /><figcaption>"Medium" by <a href="https://www.flickr.com/photos/thomashawk/14586158819/">Thomas Hawk</a>.</figcaption>
+		  <img src="$i" width="100%" /><figcaption>"Medium" by <a href="https://www.flickr.com/photos/thomashawk/14586158819/">Thomas Hawk</a>.</figcaption>
     </figure>
+HTML
+fi
+done
+
+for i in img/*.jpg
+do
+if [ -e $i ]
+then
+echo "Adding img/$i"
+cat >> ./$file <<HTML
     <figure>
-		  <img src="img/ej2.jpg" width="100%" /><figcaption>"Medium" by <a href="https://www.flickr.com/photos/thomashawk/14586158819/">Thomas Hawk</a>.</figcaption>
+		  <img src="$i" width="100%" /><figcaption>"Medium" by <a href="https://www.flickr.com/photos/thomashawk/14586158819/">Thomas Hawk</a>.</figcaption>
     </figure>
+HTML
+fi
+done
+
+cat >>./$file<<FOOT
   </div> <!-- // bss-slides -->
   <script type='text/javascript' src='js/jquery-3.5.1.js'></script>
   <script src="js/loadImg.js"></script>
@@ -44,3 +79,6 @@
 </body>
 
 </html>
+FOOT
+
+echo "HTML created and written to $file"

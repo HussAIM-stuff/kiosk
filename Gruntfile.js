@@ -1,4 +1,4 @@
-module.exports = function(grunt) { 
+module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         uglify: {
@@ -10,7 +10,7 @@ module.exports = function(grunt) {
         autoprefixer: {
             dist: {
                 files: {
-                    'css/simple-slideshow-styles.css': 'css/styles.css' 
+                    'css/simple-slideshow-styles.css': 'css/styles.css'
                 }
             }
         },

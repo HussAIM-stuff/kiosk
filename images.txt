@@ -1,0 +1,3 @@
+./img/:
+ej1.jpg
+ej2.jpg
