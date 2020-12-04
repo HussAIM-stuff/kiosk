@@ -1,5 +1,7 @@
 #!/bin/bash
 #
+phone='+34 623105464'
+email='sunnyhouses@gmail.com'
 file=indexFR.html
 if [ -e $file ]
 then
@@ -19,13 +21,13 @@ cat >> ./$file <<HEAD
   <title>KioskFrance</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="demo/css/demostyles.css">
-  <link rel="stylesheet" href="css/simple-slideshow-styles.css">
+  <link rel="stylesheet" href="css/extraStyles.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
-    <h1>WhatsApp: +34 623105464</h1>
-    <p><span class="desc">sunnyhouses@gmail.com</span></p>
+    <h1>WhatsApp: $phone</h1>
+    <p><span class="desc">$email</span></p>
   </header>
   <div class="bss-slides num1" id="canvas" tabindex="1" autofocus="autofocus">
 HEAD
@@ -37,7 +39,7 @@ then
 echo "Adding img/$i"
 cat >> ./$file <<HTML
     <figure>
-		  <img src="$i" width="100%" /><figcaption>"Medium" by <a href="https://www.flickr.com/photos/thomashawk/14586158819/">Thomas Hawk</a>.</figcaption>
+		  <img src="$i" width="100%" /><figcaption>"Ejemplo $i" by Huss</figcaption>
     </figure>
 HTML
 fi
@@ -50,7 +52,7 @@ then
 echo "Adding img/$i"
 cat >> ./$file <<HTML
     <figure>
-		  <img src="$i" width="100%" /><figcaption>"Medium" by <a href="https://www.flickr.com/photos/thomashawk/14586158819/">Thomas Hawk</a>.</figcaption>
+		  <img src="$i" width="100%" /><figcaption>"Ejemplo $i" by Huss</figcaption>
     </figure>
 HTML
 fi
@@ -59,8 +61,7 @@ done
 cat >>./$file<<FOOT
   </div> <!-- // bss-slides -->
   <script type='text/javascript' src='js/jquery-3.5.1.js'></script>
-  <script src="js/loadImg.js"></script>
-  <script src="js/better-simple-slideshow.min.js"></script>
+  <script type='text/javascript' src="js/slideshow.js"></script>
 
   <script>
     var opts = {
