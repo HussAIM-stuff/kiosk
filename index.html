@@ -1,18 +1,3 @@
-#!/bin/bash
-#
-phone='+34 623105464'
-email='sunnyhouses@gmail.com'
-file=index.html
-if [ -e $file ]
-then
-  echo "HTML $file deleted"
-  rm $file
-  sudo rm -rf /root/.cache/chromium
-fi
-
-##Create HTML page
-title=$1
-cat >> ./$file <<HEAD
 <!DOCTYPE html>
 <html>
 
@@ -27,39 +12,16 @@ cat >> ./$file <<HEAD
 </head>
 <body>
   <header>
-    <h1>WhatsApp: $phone</h1>
-    <p><span class="desc">$email</span></p>
+    <h1>WhatsApp: +34 623105464</h1>
+    <p><span class="desc">sunnyhouses@gmail.com</span></p>
   </header>
   <div class="bss-slides num1" id="canvas" tabindex="1" autofocus="autofocus">
-HEAD
-
-for i in img/*.png
-do
-if [ -e $i ]
-then
-echo "Adding img/$i"
-cat >> ./$file <<HTML
     <figure>
-		  <img src="$i" width="100%" /><figcaption>"Ejemplo $i" by Huss</figcaption>
+		  <img src="img/Untitled.png" width="100%" /><figcaption>"Ejemplo img/Untitled.png" by Huss</figcaption>
     </figure>
-HTML
-fi
-done
-
-for i in img/*.jpg
-do
-if [ -e $i ]
-then
-echo "Adding img/$i"
-cat >> ./$file <<HTML
     <figure>
-		  <img src="$i" width="100%" /><figcaption>"Ejemplo $i" by Huss</figcaption>
+		  <img src="img/Untitled2.png" width="100%" /><figcaption>"Ejemplo img/Untitled2.png" by Huss</figcaption>
     </figure>
-HTML
-fi
-done
-
-cat >>./$file<<FOOT
   </div> <!-- // bss-slides -->
   <script type='text/javascript' src='js/jquery-3.5.1.js'></script>
   <script type='text/javascript' src="js/slideshow.js"></script>
@@ -79,6 +41,3 @@ cat >>./$file<<FOOT
 </body>
 
 </html>
-FOOT
-
-echo "HTML created and written to $file"
